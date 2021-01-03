@@ -5,79 +5,100 @@
 }
 
 body {
-	font-family:Arial,Helvetica,sans-serif: 
-	background-color: #fafafa; 	
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #fafafa;
 }
 
-.navigationList{
+.navigationList {
 	list-style: none;
-	display:flex;
+	display: flex;
 	justify-content: center;
-	border-top: 1px solid #cccc;
-	border-bottom:1px solid #cccc;/* Probably will be media query*/
-
+	border-top: 1px solid #dbdbdb;
+	border-bottom: 1px solid #dbdbdb;
 }
-.navigationItem{
+
+.navigationItem {
 	position: relative;
-	width:25%;
+	width: 33.3%;
 	display: flex;
 	justify-content: center;
 }
 
-.navigationItem:last-child{
+.navigationItem:last-child {
 	margin-right: 0;
 }
 
+.navigationItem.active .navigationItem__Text {
+	color: #000;
+}
 
-.navigationItem_Button{
-	border: none; /* Probably going to need media query --*/
+.navigationItem.active .navigationItem__Icon path {
+	fill: #0095f6;
+}
+
+.navigationItem__Button {
 	display: flex;
+	align-items: center;
 	justify-content: center;
-	background:transparent;
+	border: none;
+	background: transparent;
 	appearance: none;
-	-webkit-appearance:none;
-	padding: 12px 0; 
+	-webkit-appearance: none;
+	padding: 12px 0;
 	cursor: pointer;
 }
-				
-.navigationItem.active .navigationItem_Text{
-	color: #000;
 
-}
-.navigationItem.active .navigationItem_Icon path{
-	fill:#0095f6;
-}	
-/*made fill red rather than black*/
-
-.navigationItem_Icon{
+.navigationItem__Icon {
 	width: 24px;
 	height: 24px;
-
 }
-.navigationItem_Text{
+
+.navigationItem__Text {
 	display: none;
-	font-weight:bold;
-	font-size:12px;
-	color:#868686;
+	font-weight: bold;
+	font-size: 12px;
+	color: #868686;
 	letter-spacing: 0.7px;
 }
 
-@media screen and (min-width:736px){
+.photosGrid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
 
-	main{
+.photosGrid__Photo {
+	width: 33%;
+	width: calc(33.3% - 2px);
+	height: 30vw;
+	background-position: center;
+	background-size: cover;
+	margin-bottom: 3px;
+}
+
+@media screen and (min-width: 736px) {
+	main {
 		padding: 20px;
 	}
 
-	.navigationList{
+	.navigationList {
 		border-bottom: none;
 	}
-	.navigationItem{
+
+	.navigationItem {
+		width: auto;
 		margin-right: 50px;
 	}
-	.navigationItem_Text{
+
+	.navigationItem__Button {
+		padding: 18px 0;
+	}
+
+	.navigationItem__Text {
 		display: block;
 	}
-	.navigationItem_Icon{
+
+	.navigationItem__Icon {
 		margin-right: 6px;
 		width: 12px;
 		height: 12px;
@@ -91,9 +112,26 @@ body {
 		background-color: #000;
 		top: -1px;
 		left: 0;
-        right: 0;
-     }
-	.navigationItem.active .navigationItem_Icon path{
-	fill:#000;
-	}	
-}/*End Media query 
+		right: 0;
+	}
+
+	.navigationItem.active .navigationItem__Icon path {
+		fill: #000;
+	}
+
+	.photosGrid__Photo {
+		width: calc(33.3% - 16px);
+		margin-bottom: 26px;
+	}
+}
+
+@media screen and (min-width: 980px) {
+	main {
+		max-width: 935px;
+		margin: auto;
+	}
+
+	.photosGrid__Photo {
+		height: 293px;
+	}
+}
